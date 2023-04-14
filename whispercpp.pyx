@@ -44,7 +44,7 @@ def download_model(model):
 
 cdef cnp.ndarray[cnp.float32_t, ndim=1, mode="c"] load_audio(bytes file, int sr = SAMPLE_RATE):
     try:
-        print("[DEBUG] Load Audio File: ", file.decode())
+        print("[DEBUG] Load Audio File: ", file.decode('utf-8'))
         print("[DEBUG] Current Working Directory : ", os.getcwd())
         out = (
             ffmpeg.input(file, threads=0)
