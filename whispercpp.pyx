@@ -44,6 +44,7 @@ def download_model(model):
 
 cdef cnp.ndarray[cnp.float32_t, ndim=1, mode="c"] load_audio(bytes file, int sr = SAMPLE_RATE):
     try:
+        print("[DEBUG] Load Audio File: ", file.decode())
         out = (
             ffmpeg.input(file, threads=0)
             .output(
